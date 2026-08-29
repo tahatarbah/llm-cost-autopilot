@@ -1,0 +1,32 @@
+[project]
+name = "llm-cost-autopilot"
+version = "0.1.0"
+description = "LLM Cost Autopilot — gateway, cost engine, and SDK"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "llm-cost-engine",
+  "llm-cost-shared",
+  "llm-cost-gateway",
+  "llm-cost-sdk",
+]
+
+[tool.uv.workspace]
+members = [
+  "packages/cost-engine",
+  "packages/shared",
+  "packages/sdk-python",
+  "apps/gateway",
+]
+
+[tool.uv.sources]
+llm-cost-engine = { workspace = true }
+llm-cost-shared = { workspace = true }
+llm-cost-gateway = { workspace = true }
+llm-cost-sdk = { workspace = true }
+
+[dependency-groups]
+dev = [
+  "pytest>=8.0",
+  "httpx>=0.27",
+]
